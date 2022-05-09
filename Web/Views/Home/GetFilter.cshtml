@@ -1,0 +1,28 @@
+
+@model IEnumerable<Data.Domain.Post>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@foreach (var item in Model)
+{
+    <article class="brick entry format-standard animate-this">
+      <div class="entry-thumb">
+          <a href="single-standard.html" class="thumb-link">
+              <img src="~/postImages/@(item.Image)" alt="building">             
+          </a>
+      </div>
+      <div class="entry-text">
+          <div class="entry-header">
+              <div class="entry-meta">
+                  <span class="cat-links">
+                      <a href="#">@item.AuthorName</a> 
+                      <a href="#">@item.UpdateTime.ToString("dd.MM.yyyy hh:mm tt")</a>               				
+                  </span>			
+              </div>
+              <h1 class="entry-title"><a href="single-standard.html">@item.Title</a></h1>               		
+          </div>
+            <div class="entry-excerpt">
+                @Html.Raw(item.Content)
+            </div>
+      </div>
+  </article>
+}

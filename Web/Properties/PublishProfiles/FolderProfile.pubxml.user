@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\Lenovo\Desktop\Yayımla</_PublishTargetUrl>
+    <History>True|2022-01-17T11:33:57.6638831Z;True|2022-01-17T13:58:35.0020674+03:00;False|2022-01-17T13:57:45.3457239+03:00;True|2022-01-17T01:57:54.0261118+03:00;True|2022-01-16T23:20:52.5131026+03:00;</History>
+  </PropertyGroup>
+</Project>

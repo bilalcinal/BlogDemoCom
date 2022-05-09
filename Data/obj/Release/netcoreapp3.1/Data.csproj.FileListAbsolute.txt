@@ -1,0 +1,13 @@
+C:\Users\Lenovo\Desktop\blogDemoCom\Data\bin\Release\netcoreapp3.1\Data.deps.json
+C:\Users\Lenovo\Desktop\blogDemoCom\Data\bin\Release\netcoreapp3.1\Data.runtimeconfig.json
+C:\Users\Lenovo\Desktop\blogDemoCom\Data\bin\Release\netcoreapp3.1\Data.runtimeconfig.dev.json
+C:\Users\Lenovo\Desktop\blogDemoCom\Data\bin\Release\netcoreapp3.1\Data.dll
+C:\Users\Lenovo\Desktop\blogDemoCom\Data\bin\Release\netcoreapp3.1\Data.pdb
+C:\Users\Lenovo\Desktop\blogDemoCom\Data\obj\Release\netcoreapp3.1\Data.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Desktop\blogDemoCom\Data\obj\Release\netcoreapp3.1\Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\Desktop\blogDemoCom\Data\obj\Release\netcoreapp3.1\Data.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Desktop\blogDemoCom\Data\obj\Release\netcoreapp3.1\Data.AssemblyInfo.cs
+C:\Users\Lenovo\Desktop\blogDemoCom\Data\obj\Release\netcoreapp3.1\Data.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\blogDemoCom\Data\obj\Release\netcoreapp3.1\Data.dll
+C:\Users\Lenovo\Desktop\blogDemoCom\Data\obj\Release\netcoreapp3.1\Data.pdb
+C:\Users\Lenovo\Desktop\blogDemoCom\Data\obj\Release\netcoreapp3.1\Data.genruntimeconfig.cache

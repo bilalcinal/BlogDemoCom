@@ -1,0 +1,102 @@
+@model Data.Domain.User
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "~/Views/Shared/AdminPanel/_AdminPanelLayout.cshtml";
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="layoutAuthentication_content">
+    <main>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="card shadow-lg border-0 rounded-lg mt-5">
+                        <div class="card-header"><h3 class="text-center font-weight-light my-4">Ayarları Güncelle</h3></div>
+                        <div class="card-body">
+                            <input class="form-control py-4" id="Id" type="text" value="@Model.Id" style="display:none;"/>
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputFirstName">Adı</label>
+                                        <input class="form-control py-4" id="Name" type="text" value="@Model.Name" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputLastName">Soyad</label>
+                                        <input class="form-control py-4" id="LastName" type="text" value="@Model.LastName" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputEmailAddress">Email</label>
+                                <input class="form-control py-4" id="Email" type="email" aria-describedby="emailHelp" value="@Model.Email" />
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputPassword">Yeni Şifre</label>
+                                        <input class="form-control py-4" id="Password" type="password" placeholder="Şifreyi girin" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputConfirmPassword">Yeni Şifre Tekrar</label>
+                                        <input class="form-control py-4" id="PasswordAgain" type="password" placeholder="Tekrar şifreyi girin" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mt-4 mb-0"><button class="btn btn-primary btn-block" onclick="hesapGuncelle()">Güncelle</button></div>                        
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script type="text/javascript">
+     function hesapGuncelle() {
+        var id = document.getElementById("Id").value;
+        var name = document.getElementById("Name").value;
+        var lastname = document.getElementById("LastName").value;
+        var email = document.getElementById("Email").value;
+        var password = document.getElementById("Password").value;
+        var passwordAgain = document.getElementById("PasswordAgain").value;
+        if(password != passwordAgain){
+            Swal.fire(
+            'Şifre hatalı!',
+            'Lütfen iki alana da aynı şifreyi yazın!',
+            'error'
+            )
+            return;
+        }
+
+        $.ajax({
+            url: '/AdminPanel/Guncelle',
+            data: { Id: id, Name: name, LastName: lastname, Email: email, Password: password },
+            type: 'post',
+            dataType: 'json',
+            success: function (data) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Başarılı!',
+                    text: 'Ayarlarınız güncellendi!',
+                    customClass: 'swal-resetPassword',
+                    showConfirmButton: false,
+                    timer: 5000
+                })
+                location.replace("/AdminPanel/Settings/")
+            },
+            error: function (data) {
+                Swal.fire(
+                'Sistem Hatası!',
+                'Lütfen daha sonra tekrar deneyin!',
+                'error'
+                )
+            }
+        });
+     }
+     
+</script>

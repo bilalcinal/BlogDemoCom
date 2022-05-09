@@ -1,0 +1,97 @@
+@model Data.Domain.Post
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "~/Views/Shared/AdminPanel/_AdminPanelLayout.cshtml";
+    ViewData["Title"] = "Post Page";
+}
+
+<header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
+    <div class="container-xl px-4">
+        <div class="page-header-content pt-4">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-auto mt-4">
+                    <h1 class="page-header-title">
+                        <span class="page-header-icon"><i data-feather="edit-3"></i></span>
+                        Post Ekle
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container-xl px-4 mt-n10">
+    <form id="fromloading" enctype="multipart/form-data" asp-action="PostAdd" asp-antiforgery="true">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-header">Sabit Alanlar</div>
+                    <div class="card-body">
+                        <div class="form-group mb-3">
+                            <label class="form-label" asp-for="AuthorName">Yazar</label>
+                            <input type="text" class="form-control" asp-for="AuthorName">
+                            <span class="text-danger" asp-validation-for="AuthorName"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label" asp-for="Title">Başlık</label>
+                            <input type="text" class="form-control" asp-for="Title">
+                            <span class="text-danger" asp-validation-for="Title"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label" asp-for="Content">Açıklama</label>
+                            <textarea class="form-control editor" asp-for="Content" rows="5" cols="5"></textarea>
+                            <span class="text-danger" asp-validation-for="Content"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="file" class="form-label">Görsel</label>
+                            <input class="form-control" type="file" name="file" id="file">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label mb-1" for="switchOne">Durumu</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="switchOne" checked asp-for="Status">
+                                <label class="form-check-label" for="switchOne"></label>
+                            </div>
+                            <span class="text-danger" asp-validation-for="Status"></span>
+                        </div>
+                        <div class="bn">
+                            <button type="submit" class="btn  btn-primary">Kaydet</button>
+                            <a asp-action="PostSettings" class="btn  btn-dark">Vazgeç</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Validation{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}
+@section Scripts{
+    <script src="https://cdn.ckeditor.com/ckeditor5/28.0.0/classic/ckeditor.js"></script>
+    <script>
+        var allEditors = document.querySelectorAll('.editor');
+        for (var i = 0; i < allEditors.length; ++i) {
+            ClassicEditor
+                .create(allEditors[i])
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+    </script>
+    <script>
+        $(document).on("submit", "#fromloading", function () {
+            $(this).find('button[type="submit"]')
+            $(this).find('button[type="submit"]').attr("disabled", "true");
+            $(this).find('button[type="submit"]').html('');
+            $(this).find('button[type="submit"]').append('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Kaydet...')
+            setTimeout(() => {
+                $(this).find('.spinner-border').remove();
+                $(this).find('button[type="submit"]').append('Kaydet');
+                $(this).find('button[type="submit"]').attr("disabled", "false");
+            }, 2000);
+        });
+    </script>
+}

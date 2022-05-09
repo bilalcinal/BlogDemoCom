@@ -1,0 +1,89 @@
+﻿<header id="header">
+    <div class="container">
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="d-flex justify-content-between align-items-center navbar-top">
+                <ul class="navbar-left">
+                    <li>@DateTime.Now.ToString("dddd, dd MMMM yyyy")</li>
+                    <li>5°C,Düzce</li>
+                </ul>
+                <div>
+                    <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                        <img src="~/assets/images/logo.png" style="height:100px;" alt="building">
+                    </a>
+                </div>
+                <div class="d-flex">
+                    
+                    <ul class="social-media">
+                        <li>
+                            <a href="#">
+                                <i class="mdi mdi-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="mdi mdi-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="mdi mdi-youtube"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="mdi mdi-linkedin"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="mdi mdi-twitter"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="navbar-bottom-menu">
+                <button class="navbar-toggler"
+                        type="button"
+                        data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="navbar-collapse justify-content-center collapse"
+                     id="navbarSupportedContent">
+                    <ul class="navbar-nav d-lg-flex justify-content-between align-items-center">
+                        <li>
+                            <button class="navbar-close">
+                                <i class="mdi mdi-close"></i>
+                            </button>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link active" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="AdminPanel" asp-action="Index">AdminPanel</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <form role="search" method="get" asp-action="Index" asp-antiforgery="true" class="search-form">
+                                <label>
+                                    <span class="hide-content">Ara:</span>
+                                    <input type="search" class="search-field" placeholder="Type Your Keywords" value="" name="filter" title="Arama:" autocomplete="off">
+                                </label>
+                                <input type="submit" class="search-submit" value="Search">
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- partial -->
+    </div>
+</header>
+
+
